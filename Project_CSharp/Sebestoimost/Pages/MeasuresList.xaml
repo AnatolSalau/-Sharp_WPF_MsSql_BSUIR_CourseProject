@@ -1,0 +1,41 @@
+﻿<Page x:Class="Sebestoimost.Pages.MeasuresList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sebestoimost.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="200" d:DesignWidth="300"
+      Title="Список единиц измерения" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Padding="5" ToolTip="Добавить" x:Name="MenuAdd" Click="MenuAdd_Click">
+                <MenuItem.Header>
+                    <Image MaxHeight="16" Source="pack://siteoforigin:,,,/Resources/add.png" />
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Padding="5" ToolTip="Изменить" x:Name="MenuEdit" Click="MenuEdit_Click">
+                <MenuItem.Header>
+                    <Image MaxHeight="16" Source="pack://siteoforigin:,,,/Resources/edit.png" />
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Padding="5" ToolTip="Удалить" x:Name="MenuDelete" Click="MenuDelete_Click">
+                <MenuItem.Header>
+                    <Image MaxHeight="16" Source="pack://siteoforigin:,,,/Resources/delete.png" />
+                </MenuItem.Header>
+            </MenuItem>
+        </Menu>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" x:Name="GrdItems" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Код" />
+                <DataGridTextColumn Binding="{Binding Name}" Header="Наименование" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
